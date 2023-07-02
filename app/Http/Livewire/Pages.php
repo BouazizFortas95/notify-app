@@ -10,6 +10,8 @@ class Pages extends Component
     public $slug;
     public $description;
 
+    protected $listeners = ['refreshComponent' => '$refresh'];
+
     /**
      * shows from the model of create function
      *
@@ -22,6 +24,15 @@ class Pages extends Component
         ]);
     }
 
+
+    public function markAsRead($id){
+        // dd($id);
+        if ($id) {
+            auth()->user()->unreadnotifications->where('id', $id)->markAsRead();
+            $this->emit('refreshComponent');
+        }
+    }
+
     /**
      * render the views
      *
@@ -29,6 +40,7 @@ class Pages extends Component
      */
     public function render()
     {
-        return view('livewire.pages');
+        $unreadnotifications = auth()->user()->unreadnotifications;
+        return view('livewire.pages', compact('unreadnotifications'));
     }
 }

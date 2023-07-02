@@ -71,7 +71,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <script>
+    {{-- <script>
         /*
          * Initialize a Web Socket client
         */
@@ -129,7 +129,7 @@
                 window.location.reload();
             }, 3000);
         }
-    </script>
+    </script> --}}
 </body>
 
 </html>
