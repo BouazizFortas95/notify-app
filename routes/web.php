@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Livewire\CartComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->name('home');
 Route::get('/notify',[ HomeController::class, 'notify'])->name('notify');
+Route::get('/sendSMS', [HomeController::class, 'sendSMS']);
 
 Route::middleware([
     'auth:sanctum',
@@ -30,5 +32,7 @@ Route::middleware([
     Route::get('/pages', function () {
         return view('admin.pages');
     })->name('pages');
+
+    Route::get('/cart', CartComponent::class)->name('cart');
 
 });

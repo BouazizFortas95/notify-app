@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\ProductEvent;
 use Illuminate\Support\Facades\Broadcast;
 
 /*
@@ -12,6 +13,8 @@ use Illuminate\Support\Facades\Broadcast;
 | used to check if an authenticated user can listen to the channel.
 |
 */
+
+Broadcast::channel('Cart-Notify', ProductEvent::class);
 
 Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
