@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Livewire\CartComponent;
+use App\Http\Livewire\Pricing;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,5 +35,7 @@ Route::middleware([
     })->name('pages');
 
     Route::get('/cart', CartComponent::class)->name('cart');
+
+    Route::get('/pricing', Pricing::class)->name('pricing');
 
 });
